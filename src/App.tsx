@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+import Item from "./Item/Item";
 
 export type CartItemType = {
   id: number;
@@ -24,12 +25,22 @@ const App = () => {
 
   const getTotalItems = () => null;
 
-  const handleAddToCart = () => null;
+  const handleAddToCart = (clickedItem: CartItemType) => null;
 
   const handleRemoveFromCart = () => null;
 
   if (error) return <div>someting went wrong</div>;
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <div>
+        {data?.map((item) => (
+          <div key={item.id}>
+            <Item item={item} handleAddToCart={handleAddToCart} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default App;
