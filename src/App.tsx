@@ -31,13 +31,15 @@ const App = () => {
 
   if (error) return <div>someting went wrong</div>;
   return (
-    <div className="App">
-      <div>
-        {data?.map((item) => (
-          <div key={item.id}>
-            <Item item={item} handleAddToCart={handleAddToCart} />
-          </div>
-        ))}
+    <div className="">
+      <div className="flex justify-between flex-col border-2 border-sky-500 rounded h-full">
+        <div>
+          {data?.map((item) => (
+            <div key={item.id} className="">
+              <Item item={item} handleAddToCart={handleAddToCart} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
